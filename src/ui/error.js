@@ -1,5 +1,3 @@
-import { fetchChannels } from "../services/api.js";
-
 export async function errorMessage(res){
 
     if(res.status == 404){
@@ -15,7 +13,7 @@ export function errorComponent(res){
     const card = document.getElementById('error-div')
 
     card.innerHTML = `
-        <div class="flex flex-col items-center text-center p-6 my-4 mx-auto max-w-md border border-red-300 bg-red-50 text-red-900 rounded-lg shadow-sm">
+        <dialog class="flex flex-col items-center z-1 text-center p-6 my-4 mx-auto max-w-md border border-red-300 bg-red-50 text-red-900 rounded-lg shadow-sm">
             <button id="err-card" class="border rounded-lg px-1 font-semibold hover:bg-gray-400">
                 <i class="fa-solid fa-x text-xs hover:text-white"></i>
             </button>
@@ -24,7 +22,7 @@ export function errorComponent(res){
             <button id="refresh-fetch">
                 <i class="fa-solid fa-arrow-rotate-left"></i>
             </button>
-        </div>
+        </dialog>
     `;
 
     const closeBtn = document.querySelector('#err-card');
@@ -36,8 +34,8 @@ export function errorComponent(res){
 
     if(refreshFetch){
     refreshFetch.addEventListener('click', ()=>{
-        fetchChannels();
-        card.style.display = 'none';
+        card.innerHTML = '';
+        location.reload()
         })
     }
 

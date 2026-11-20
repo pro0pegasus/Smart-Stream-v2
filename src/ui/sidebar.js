@@ -1,4 +1,3 @@
-
 const categoryCardContainer = document.getElementById("categories-channels")
 
 
@@ -6,12 +5,15 @@ function categories(channels){
 
     const allCategories = []
 
-    channels.forEach(channel => {
+    const visibleChannels = channels.filter(channel=>{
+        return !channel.isBlacklisted;
+    })
+
+    visibleChannels.forEach(channel => {
         if(!allCategories.includes(channel.category)){
             allCategories.push(channel.category);
         }
-    });
-
+    })
     return allCategories;
 }
 
@@ -32,4 +34,5 @@ export function channelCategories(channels){
     }).join('')
 
     categoryCardContainer.innerHTML = card;
-}   
+}
+

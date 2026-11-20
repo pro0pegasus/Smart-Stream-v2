@@ -1,5 +1,4 @@
 
-
 const channelDescriotionContainer = document.getElementById("channel-description");
 const playerContent = document.getElementById("player-content");
 
@@ -45,8 +44,9 @@ export function channelDescription(channel){
                         <p>${channel.epg.startTime} - ${channel.epg.endTime}</p>
                     </div>
 
-                    
-                    <div class="bg-purple-500 h-2 rounded-full" style=width:"${channel.epg.progressPercentage}%"></div>
+                    <div class="bg-gray-700 h-2 rounded-full" style="width:100%">
+                        <div class="bg-purple-500 h-2 rounded-full" style="width:${channel.epg.progressPercentage}%"></div>
+                    </div>
                     <p class="text-xs text-gray-500 mt-5 text-right"> ${channel.epg.progressPercentage}% Completed</p>
                 </div>
 

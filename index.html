@@ -23,13 +23,14 @@
         <nav class="">
           <ul class="flex flex-row gap-6">
             <a href="/index.html"><li><i class="fa-solid fa-house"></i></li></a>
-            <a href="/index.html"><li><i class="fa-solid fa-tv"></i></li></a>
+            <!-- <a href="/index.html"><li><i class="fa-solid fa-tv"></i></li></a> -->
+             <button id="add-channel" class="cursor-pointer"><li><i class="fa-solid fa-tv"></i></li></button>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class=" min-h-screen">
+    <main id="main" class=" min-h-screen">
       <div id="error-div"></div>
       <div id="app-container" class="grid grid-cols-[400px_1fr] min-h-screen transition-[grid-template-columns] duration-300 ease-in-out">
         <aside id="sidebar" class="flex flex-col bg-[#1e1e2d] text-white p-4 gap-4 overflow-hidden transition-[width]">
@@ -44,6 +45,21 @@
           </div>
           <div>
             <button id="back-btn" class="hidden cursor-pointer"><i class="fa-solid fa-left-long"></i></button>
+
+            <div id="favourite-channels" class="rounded-lg pt-2 px-2 max-h-122 overflow-y-auto">
+              <div class = "flex flex-row items-center justify-between gap-2 my-2 p-2 bg-[#050A1E] border rounded-lg border-purple-400 shrink-0 cursor-pointer" >
+                  <h3 class="text-gray-400">FAVOURITE</h3>
+                  <i class="fa-solid fa-thumbtack"></i>
+              </div>
+            </div>
+            
+            <div class="rounded-lg pt-2 px-2 max-h-122 overflow-y-auto">
+              <div id="blacklist-channels" class="flex flex-row items-center gap-2 my-2 p-2 bg-[#050A1E] border rounded-lg border-purple-400 shrink-0 cursor-pointer">
+                <i class="fa-solid fa-ban" style="color: red;"></i>
+                <span class="text-gray-400">LISTE NOIRE</span>
+              </div>
+            </div>
+
             <div id="loader" class="mt-20 mx-auto w-[100px] h-[100px] rounded-full border-[12px] border-[#f3f3f3] border-t-[12px] border-t-gray-600 animate-spin"></div>
             <div id="categories-channels" class="rounded-lg pt-2 px-2 max-h-122 overflow-y-auto"></div>
             <div id="channels-container" class="rounded-lg pt-2 px-2 max-h-122 overflow-y-auto"></div>
